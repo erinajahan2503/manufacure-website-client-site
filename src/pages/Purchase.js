@@ -5,49 +5,49 @@ import BuyModal from "../components/BuyModal/BuyModal";
 import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 
-const MF = "https://tranquil-shelf-42201.herokuapp.com/upload/"
+const MF = "https://pure-tundra-71738.herokuapp.com/upload/"
 const Purchase = () => {
-    const [singleData  , setSingleData] = useState({})
-    const [parsesError , setParsesError] = useState('')
-    const { image, name, details, price, quantity, minimumOrder, _id } = singleData
-    const { id } = useParams();
-    useEffect(()=>{
-        const getData = async ()=>{
-            await axios.get(`https://tranquil-shelf-42201.herokuapp.com/api/tools/${id}`)
-            .then(data => setSingleData(data.data))
-            
-        }
-        getData()
-  
-    },[])
-    
-    const minimumPeress = parseInt(minimumOrder)
+  const [singleData, setSingleData] = useState({})
+  const [parsesError, setParsesError] = useState('')
+  const { image, name, details, price, quantity, minimumOrder, _id } = singleData
+  const { id } = useParams();
+  useEffect(() => {
+    const getData = async () => {
+      await axios.get(`https://pure-tundra-71738.herokuapp.com/api/tools/${id}`)
+        .then(data => setSingleData(data.data))
 
-    // const rsult = parseInt(minimumOrder) * parseInt(price)
-    const [yourQuantity , setYourQuantity] = useState(minimumPeress)
-    // const [totalPrice , setTotalPrice] = useState(0)
-    useEffect(()=>{
-      setYourQuantity(minimumPeress)
-    },[minimumPeress])
+    }
+    getData()
 
- const handleQuntity = (e)=>{
+  }, [])
+
+  const minimumPeress = parseInt(minimumOrder)
+
+  // const rsult = parseInt(minimumOrder) * parseInt(price)
+  const [yourQuantity, setYourQuantity] = useState(minimumPeress)
+  // const [totalPrice , setTotalPrice] = useState(0)
+  useEffect(() => {
+    setYourQuantity(minimumPeress)
+  }, [minimumPeress])
+
+  const handleQuntity = (e) => {
     const re = /^[0-9\b]+$/;
     if (e.target.value === "" || re.test(e.target.value)) {
-      setYourQuantity(e.target.value);   
+      setYourQuantity(e.target.value);
     }
- }
+  }
 
-      useEffect(()=>{
-        if(yourQuantity < minimumPeress){
-          setParsesError(`Please Your minimum Order [ ${minimumOrder} ]`)
-        }else if(yourQuantity > parseInt(quantity)){
-          setParsesError(`Please Your maximum Order [ ${quantity} ]`)
-        }
-        else{
-          setParsesError('')
-        }
-        
-      },[yourQuantity])
+  useEffect(() => {
+    if (yourQuantity < minimumPeress) {
+      setParsesError(`Please Your minimum Order [ ${minimumOrder} ]`)
+    } else if (yourQuantity > parseInt(quantity)) {
+      setParsesError(`Please Your maximum Order [ ${quantity} ]`)
+    }
+    else {
+      setParsesError('')
+    }
+
+  }, [yourQuantity])
 
   return (
     <>
@@ -81,19 +81,19 @@ const Purchase = () => {
                 Order Details
               </h2>
               <hr />
-             
-                <label class="label">
-                  <span class="label-text">Your Order Amount</span>
-                </label>
-                <input
-                  type="number"
-                  placeholder="Amount quantity"
-                  class="input input-bordered w-full max-w-xs"
-                  value={yourQuantity}
-                  onChange={handleQuntity}
-                />
-                <p className="mt-2 font-bold text-primary">Total Price : {yourQuantity * parseInt(price)} </p>
-            
+
+              <label class="label">
+                <span class="label-text">Your Order Amount</span>
+              </label>
+              <input
+                type="number"
+                placeholder="Amount quantity"
+                class="input input-bordered w-full max-w-xs"
+                value={yourQuantity}
+                onChange={handleQuntity}
+              />
+              <p className="mt-2 font-bold text-primary">Total Price : {yourQuantity * parseInt(price)} </p>
+
             </div>
             <p className="text-xl text-secondary">{parsesError}</p>
             <div class="flex pb-5 justify-end">

@@ -7,9 +7,9 @@ import swal from "sweetalert";
 import * as yup from "yup";
 import { useAuthContext } from "../../context/AuthContextProvider";
 
-const BuyModal = ({yourQuantity , price}) => {
-  const formattedDate = format(new Date() , 'PP')
-  const [orderAmount , setOrderAmount] = useState(0)
+const BuyModal = ({ yourQuantity, price }) => {
+  const formattedDate = format(new Date(), 'PP')
+  const [orderAmount, setOrderAmount] = useState(0)
   const { username } = useAuthContext();
   let schema = yup.object().shape({
     name: yup.string().required(),
@@ -30,11 +30,11 @@ const BuyModal = ({yourQuantity , price}) => {
       email,
       address,
       phoneNumber,
-      price : price,
-      orderAmount : yourQuantity,
-      date :formattedDate
+      price: price,
+      orderAmount: yourQuantity,
+      date: formattedDate
     };
-    await axios.post(`https://tranquil-shelf-42201.herokuapp.com/api/purchase`, purchaseData);
+    await axios.post(`https://pure-tundra-71738.herokuapp.com/api/purchase`, purchaseData);
     swal("Your Order Success");
   };
   return (
@@ -51,7 +51,7 @@ const BuyModal = ({yourQuantity , price}) => {
           <h3 class="font-bold text-lg mb-5">Conform Your Order Please </h3>
           <form onSubmit={handleSubmit(onSubmit)}>
             <input
-            required
+              required
               type="text"
               placeholder="Name"
               value={username.displayName}
@@ -60,7 +60,7 @@ const BuyModal = ({yourQuantity , price}) => {
             />
             <p className=" text-secondary">{errors.Name?.message}</p>
             <input
-            required
+              required
               type="text"
               placeholder="Email"
               value={username.email}
@@ -70,7 +70,7 @@ const BuyModal = ({yourQuantity , price}) => {
             <p className=" text-secondary">{errors.email?.message}</p>
 
             <input
-            required
+              required
               type="text"
               placeholder="Address"
               class="input mb-3 input-bordered input-secondary w-full "
@@ -79,15 +79,15 @@ const BuyModal = ({yourQuantity , price}) => {
             <p className=" text-secondary">{errors.address?.message}</p>
 
             <input
-            required
+              required
               type="text"
               placeholder="Phone Number"
               class="input mb-3 input-bordered input-secondary w-full "
               {...register("phoneNumber")}
             />
             <p className=" text-secondary">{errors.phoneNumber?.message}</p>
-              <span className="text-2xl block text-secondary mb-3 font-bold">Your Amount Of Product: {yourQuantity }</span>
-              <span className="text-2xl block text-secondary mb-3 font-bold">Total Price : {yourQuantity * price}</span>
+            <span className="text-2xl block text-secondary mb-3 font-bold">Your Amount Of Product: {yourQuantity}</span>
+            <span className="text-2xl block text-secondary mb-3 font-bold">Total Price : {yourQuantity * price}</span>
             <button className="btn-secondary text-white btn ">Purchase</button>
           </form>
         </div>

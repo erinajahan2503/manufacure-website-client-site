@@ -6,12 +6,12 @@ import Reviews from "../Reviews/Reviews";
 const OurReviewPart = () => {
 
 
-  const [reviewsData , setReviewsData] = useState([])
-  useEffect(()=>{
-       fetch(`https://tranquil-shelf-42201.herokuapp.com/api/review`)
-       .then(data => data.json())
-       .then(res =>setReviewsData(res))
-  },[reviewsData])
+  const [reviewsData, setReviewsData] = useState([])
+  useEffect(() => {
+    fetch(`https://pure-tundra-71738.herokuapp.com/api/review`)
+      .then(data => data.json())
+      .then(res => setReviewsData(res))
+  }, [reviewsData])
 
   // const ReviewsData = [
   //   {

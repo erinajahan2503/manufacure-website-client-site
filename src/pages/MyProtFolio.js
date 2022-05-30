@@ -5,7 +5,7 @@ const MyProtFolio = () => {
   return (
     <>
       <Header />
-        <div>my protFolio</div>
+      <div>my protFolio</div>
       <Footer />
     </>
   );

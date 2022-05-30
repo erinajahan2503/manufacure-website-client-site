@@ -3,13 +3,13 @@ import { getAuth } from 'firebase/auth';
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDsgCikfxqD4VPWD8Ff8txKkILhLC_9FZw",
-    authDomain: "computer-hardware-fair.firebaseapp.com",
-    projectId: "computer-hardware-fair",
-    storageBucket: "computer-hardware-fair.appspot.com",
-    messagingSenderId: "428039129714",
-    appId: "1:428039129714:web:5d21406b4b68f38feb10eb",
-    measurementId: "G-JM30C1C6ZW"
+    apiKey: "AIzaSyA8xI-dqmhtNn6DRA8mPPZN3uM19eeWIaA",
+    authDomain: "flower-fair.firebaseapp.com",
+    projectId: "flower-fair",
+    storageBucket: "flower-fair.appspot.com",
+    messagingSenderId: "394674623311",
+    appId: "1:394674623311:web:931a08cab47b2fb3c62b3a",
+    measurementId: "G-PD01PZTVV0"
 
 };
 

@@ -15,7 +15,7 @@ const MakeAdmin = () => {
     error,
     data: allUser,
   } = useQuery("userData", () =>
-    fetch(`https://tranquil-shelf-42201.herokuapp.com/api/user`, {
+    fetch(`https://pure-tundra-71738.herokuapp.com/api/user`, {
       method: "GET",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,
@@ -50,7 +50,7 @@ const MakeAdmin = () => {
             </tr>
           </thead>
           <tbody>
-            {allUser?.map((user , index) => (
+            {allUser?.map((user, index) => (
               <MakeAdminRow key={index} refetch={refetch} user={user} />
             ))}
           </tbody>

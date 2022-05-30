@@ -8,14 +8,14 @@ const AddTools = () => {
   const [price, setPrice] = useState("");
   const [minimumOrder, setMinimumOrder] = useState("");
   const [file, setFile] = useState(null);
-  const MF = "https://tranquil-shelf-42201.herokuapp.com/upload/"
-
-  
+  const MF = "https://pure-tundra-71738.herokuapp.com/upload/"
 
 
 
 
-  
+
+
+
   const handleUser = async (e) => {
     e.preventDefault();
     const newPost = {
@@ -26,7 +26,7 @@ const AddTools = () => {
       minimumOrder
     };
     if (file) {
-   
+
       const data = new FormData();
       const fileName = Date.now() + file.name;
       data.append("name", fileName);
@@ -34,15 +34,15 @@ const AddTools = () => {
       newPost.image = fileName;
 
       try {
-  
-        const imgInfo = await axios.post("https://tranquil-shelf-42201.herokuapp.com/upload", data);
+
+        const imgInfo = await axios.post("https://pure-tundra-71738.herokuapp.com/upload", data);
       } catch (error) {
-       console.log(error) 
+        console.log(error)
       }
     }
 
     try {
-      const data = await axios.post("https://tranquil-shelf-42201.herokuapp.com/api/tools", newPost);
+      const data = await axios.post("https://pure-tundra-71738.herokuapp.com/api/tools", newPost);
       setFile(null);
       setName('')
       setDetails('')
@@ -68,9 +68,9 @@ const AddTools = () => {
               </div>
               <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                 <div class="card-body">
-                {/* <img width="300px" src={item ? MF + item.image : null } alt="" /> */}
+                  {/* <img width="300px" src={item ? MF + item.image : null } alt="" /> */}
                   <form onSubmit={handleUser}>
-                  <input required className="mb-4" type="file" onChange={(e)=> setFile(e.target.files[0])} />
+                    <input required className="mb-4" type="file" onChange={(e) => setFile(e.target.files[0])} />
                     <input
                       required
                       type="text"
@@ -96,7 +96,7 @@ const AddTools = () => {
                       onChange={(e) => setQuantity(e.target.value)}
                     />
                     <input
-                       required
+                      required
                       type="number"
                       placeholder="Price"
                       class="input w-full mb-2 input-bordered"
@@ -108,13 +108,13 @@ const AddTools = () => {
                       class="textarea textarea-secondary w-full"
                       placeholder="Bio"
                       value={details}
-                      onChange={(e)=>setDetails(e.target.value)}
+                      onChange={(e) => setDetails(e.target.value)}
                     ></textarea>
-                     <button class="btn btn-secondary text-white">
+                    <button class="btn btn-secondary text-white">
                       ADD PRODUCT
                     </button>
                   </form>
-             
+
                 </div>
               </div>
             </div>

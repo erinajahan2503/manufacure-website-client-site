@@ -4,12 +4,12 @@ import { useAuthContext } from "../context/AuthContextProvider";
 import UpdateUserProfileModal from "./UpdateUserProfileModal";
 
 const MyProfile = () => {
-  const MF = "https://tranquil-shelf-42201.herokuapp.com/upload/"
+  const MF = "https://pure-tundra-71738.herokuapp.com/upload/"
 
   const { username } = useAuthContext();
   const [userP, setUserP] = useState([]);
   useEffect(() => {
-    fetch(`https://tranquil-shelf-42201.herokuapp.com/api/user/${username.email}`, {
+    fetch(`https://pure-tundra-71738.herokuapp.com/api/user/${username.email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -20,7 +20,7 @@ const MyProfile = () => {
   }, [userP]);
 
 
-// console.log(userP[0]?.image);
+  // console.log(userP[0]?.image);
   // const { name ,education , location} = userP[0]
 
 
@@ -32,8 +32,8 @@ const MyProfile = () => {
         <div class="  bg-base-100 flex  shadow-sm">
           <div className="p-6">
             <img
-            width="200px"
-              src={userP[0]?.image ? MF+userP[0]?.image : null}
+              width="200px"
+              src={userP[0]?.image ? MF + userP[0]?.image : null}
               alt="Shoes"
               class="rounded-4"
             />
@@ -73,7 +73,7 @@ const MyProfile = () => {
             <label for="my-modal" class="btn modal-button bg-primary text-white">
               Update Your Details
             </label>
-            <UpdateUserProfileModal  educationU={userP[0]?.education} locationU={userP[0]?.location} linkDinU={userP[0]?.linkDin}  username={username} />
+            <UpdateUserProfileModal educationU={userP[0]?.education} locationU={userP[0]?.location} linkDinU={userP[0]?.linkDin} username={username} />
           </div>
         </div>
       </div>

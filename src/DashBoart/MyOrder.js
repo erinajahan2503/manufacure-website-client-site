@@ -10,7 +10,7 @@ const MyProducts = () => {
   const { username } = useAuthContext();
 
   useEffect(() => {
-    fetch(`https://tranquil-shelf-42201.herokuapp.com/api/purchase?email=${username.email}`, {
+    fetch(`https://pure-tundra-71738.herokuapp.com/api/purchase?email=${username.email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -26,7 +26,7 @@ const MyProducts = () => {
         }
       })
       .then((data) => setMyOrder(data));
-  }, [username , myOrder]);
+  }, [username, myOrder]);
 
   return (
     <div className="p-4 mt-5">
